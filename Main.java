@@ -5,12 +5,12 @@ public class Main {
     public static void main(String[] args) {
         //build vocabulay deck
         ArrayList<Word> deck = new ArrayList<>(); 
-        deck.add(new Word("いぬ","dog"));
-        deck.add(new Word("ねこ","cat"));
+        deck.add(new Word("犬/いぬ","dog"));
+        deck.add(new Word("猫/ねこ","cat"));
         deck.add(new Word("ぞう","elephant"));
-        deck.add(new Word("とり","bird"));
-        deck.add(new Word("みず","water"));
-        deck.add(new Word("きれい","beautiful"));
+        deck.add(new Word("鳥/とり","bird"));
+        deck.add(new Word("水/みず","water"));
+        deck.add(new Word("綺麗/きれい","beautiful"));
         // creat two useful tool objects for getting the input and getting the random word
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
@@ -21,8 +21,12 @@ public class Main {
         ArrayList<Word> missed = new ArrayList<>();
         // Quiz loop
         for (int i = 1; i <= total; i++){
-            Word w = deck.get(rand.nextInt(deck.size()));
-            System.out.println();
+            // get random number
+            int index = rand.nextInt(deck.size());
+            // intend to not duplicate the word if 
+            Word w = deck.remove(index); // this code basicly did 2 things  1. remove the object at index from deck
+                                                                   //       2. return the object at index to w x
+            System.out.println();   
             System.out.println("Question " + i + " / " + total);
             System.out.println("Japanese: " + w.japanese);
             System.out.print("Meaning in English: ");
@@ -47,7 +51,7 @@ public class Main {
                 System.out.println(w.japanese + " -> " + w.english);
             }
         }
-        //close input flow
+        //close the stream and releases system resources
         sc.close();
 
     }
