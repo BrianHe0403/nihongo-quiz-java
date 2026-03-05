@@ -5,7 +5,7 @@ public class Word {
 
     // constructor : create a word with japanese and english meaning 
     public Word(String j, String e){
-        japanese = j;
-        english = e;
+        this.japanese = j;
+        this.english = e;
     }
 }

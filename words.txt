@@ -1,0 +1,14 @@
+犬/いぬ,dog
+猫/ねこ,cat
+鳥/とり,bird
+水/みず,water
+象/ぞう,elephant
+綺麗/きれい,beautiful
+生活/せいかつ,life
+正解/せいかい,correct
+最高/さいこ,best
+紅葉/もみじ,autumn foliage
+動物/どうぶつ,animal
+カメラ,camera
+家/いえ,home
+駅/えき,station
