@@ -1,24 +1,58 @@
-# Nihongo-quiz-java
-A simple vocabulary quiz program written by java, intend to helping people memorize vocabulary.
+# Japanese Vocabulary Quiz App
 
-Features 
-- Simple Menu  
-- Show all words in file
-- Random vocabulary quiz mode
-- User input answer
-- Score tracking
-- Mised word review
-- Avoild duplicate question
-- Load vocabulary from external file
-- Wrong_words File
-- Add new words to words.txt file
+## Overview
+This project is a Java-based console application for practicing Japanese vocabulary.  
+It was created to improve vocabulary learning efficiency while also demonstrating my programming skills in Java.
+The app presents vocabulary quizzes to the user, checks answers, and keeps track of incorrect responses for review.
 
+## Purpose
+I built this project to combine two personal interests:
+- studying Japanese
+- improving my software development skills
 
+## Features
+- Random vocabulary quiz 
+- Japanese-to-English word practice
+- Tracks incorrect answers and add them in a missed file
+- Category-based word organization
+- Simple command-line interaction
+- Add/Remove vocabulary from txt file
+- Search a vocabulary from file
 
-
-Tech
+## Technologies Used
 - Java
+- Object-Oriented Programming
 - ArrayList
 - Random
 - Scanner
-- i/o file input 
+- File input/output
+
+## What I Learned
+Through this project, I strengthened my understanding of:
+- class design and object-oriented programming
+- handling collections with ArrayList
+- user input with Scanner
+- random question generation
+- organizing a program into multiple classes
+- basic file reading and data management
+
+## Challenges
+One challenge was designing the program structure clearly so that vocabulary data, quiz logic, and user interaction were separated into different classes.
+Another challenge was making the program easy to extend, so I could add more vocabulary categories in the future without rewriting the whole application.
+
+## Future Improvements
+- Add a scoring system
+- Add difficulty levels
+- Save missed words automatically
+- Build a GUI version
+- Support both Japanese-to-English and English-to-Japanese quizzes
+
+## Why This Project Matters
+This project reflects both my technical learning journey and my personal motivation to work in Japan.  
+It is a simple project, but it shows my ability to design a useful application, organize code with object-oriented principles, and continue improving it step by step.
+
+## Author
+MU HE
+
+## GitHub
+github.com/BrianHe0403 

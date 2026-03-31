@@ -35,7 +35,7 @@ public class Main {
             System.out.println("1. Show all words");
             System.out.println("2. Quiz mode");
             System.out.println("3. Add a new word");
-            System.out.println("4. Remove a word");
+            System.out.println("4. Delete a word");
             System.out.println("5. Search a word");
             System.out.println("6. Exit");
             System.out.println("==== Japanese Learning App ====");
@@ -51,6 +51,11 @@ public class Main {
                         break;
                 // quiz mode
                 case 2:
+                     // creat Arraylist object record the words that used 
+                    ArrayList<Integer> used = new ArrayList<>();
+                    // reset the miss file 
+                    missed.clear(); 
+
                     int total = 5;
                     int correct = 0;
                     // Quiz loop
@@ -58,8 +63,12 @@ public class Main {
                          // get random number
                         int index = rand.nextInt(deck.size());
                         // intend to not duplicate the word if 
-                        Word w = deck.remove(index); // this code basicly did 2 things  1. remove the object at index from deck
-                                                                            //       2. return the object at index assigned to w
+                        while (used.contains(index)) {
+                            index = rand.nextInt(deck.size());
+                        }
+
+                        used.add(index);
+                        Word w = deck.get(index);
                         System.out.println();   
                         System.out.println("Question " + i + " / " + total);
                         System.out.println("Japanese: " + w.japanese);
@@ -107,7 +116,9 @@ public class Main {
                         outAdd.close();
                         break;
 
-
+                // delete a word
+                case 4:
+                        
                         
                 default:
                         System.out.println("Invild choice please enter a number 1-6");
