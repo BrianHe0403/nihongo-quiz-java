@@ -1,4 +1,3 @@
-しゃぶしゃぶ/しゃぶしゃぶ,shabu-shabu,Food
-タコ/たこ,octopus,Animal
-そば/そば,soba,Food
-味噌汁/みそしる,miso soup,Food
+羊/ひつじ,sheep,Animal
+豚/ぶた,pig,Animal
+蛙/かえる,frog,Animal

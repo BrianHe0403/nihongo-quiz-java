@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Random;
 import java.io.File;
@@ -57,24 +58,46 @@ public class Main {
                         break;
                 // quiz mode
                 case 2:
-                     // creat Arraylist object record the words that used 
+                    // select the category 
+                    HashSet<String> categories = new HashSet<>();
+                    for(Word w:deck){
+                        categories.add(w.getCategory());
+                    }
+                    System.out.println("Available categoryies: ");
+                    for(String s:categories){
+                        System.out.println("- " + s);
+                    }
+
+                    System.out.println("Please select a category that you interested");
+                    String categorySelect = sc.nextLine().trim();
+                    
+                    ArrayList<Word> categoryName = new ArrayList<>();
+                    
+                    for(Word w:deck){
+                        if(w.getCategory().equalsIgnoreCase(categorySelect)){
+                            categoryName.add(w);
+                        }
+                    }
+
+
+                    // creat Arraylist object record the words that used 
                     ArrayList<Integer> used = new ArrayList<>();
                     // reset the miss file 
                     missed.clear(); 
 
-                    int total = 5;
+                    int total = 10;
                     int correct = 0;
                     // Quiz loop
                     for (int i = 1; i <= total; i++){
                          // get random number
-                        int index = rand.nextInt(deck.size());
+                        int index = rand.nextInt(categoryName.size());
                         // intend to not duplicate the word if 
                         while (used.contains(index)) {
-                            index = rand.nextInt(deck.size());
+                            index = rand.nextInt(categoryName.size());
                         }
 
                         used.add(index);
-                        Word w = deck.get(index);
+                        Word w = categoryName.get(index);
                         System.out.println();   
                         System.out.println("Question " + i + " / " + total);
                         System.out.println("Japanese: " + w.japanese);
@@ -136,6 +159,11 @@ public class Main {
                         System.out.println("Please enter the word(E/J) you want get(return in both english and japanese)");
                         String searchInput = sc.nextLine();
                         Word.searchByEnglish(deck, searchInput);
+                        break;
+                // Exit project
+                case 6:
+                        System.out.println("Thank you for using this app,ありがどう!");
+                        running = false;
                         break;
                 default:
                         System.out.println("Invild choice please enter a number 1-6");
