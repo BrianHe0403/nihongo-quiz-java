@@ -17,10 +17,16 @@ public class Main {
         Scanner filScanner = new Scanner(file);
 
         while(filScanner.hasNextLine()){
-            String line = filScanner.nextLine();
+            String line = filScanner.nextLine().trim();
             String[] parts = line.split(",");
-            Word w = new Word(parts[0],parts[1]);
-            deck.add(w);
+
+            if(parts.length ==3){
+                String japanese = parts[0].trim();
+                String english = parts[1].trim();
+                String category = parts[2].trim();
+                Word w = new Word(japanese,english,category);
+                deck.add(w);
+            }
         }
         // creat a tool object Scanner to read input from user 
         Scanner sc = new Scanner(System.in);
@@ -46,7 +52,7 @@ public class Main {
                 // show all words
                 case 1: //this loop goes through each word oject in deck during each iteration,w refers to the current object 
                         for(Word w : deck){
-                            System.out.println(w.japanese + " --- " + w.english);
+                            System.out.println(w);
                         }
                         break;
                 // quiz mode
@@ -87,7 +93,7 @@ public class Main {
                         // create a wrong_word file 
                         PrintWriter out = new PrintWriter("Wrong_words.txt");
                         for(Word w : missed){
-                            out.println(w.japanese + " -> " + w.english);
+                            out.println(w);
                         }
 
                         out.close();
@@ -98,7 +104,7 @@ public class Main {
                         if(!missed.isEmpty()){
                             System.out.println("Missed Words:");
                             for (Word w : missed){
-                                System.out.println(w.japanese + " -> " + w.english);
+                                System.out.println(w);
                             }
                         }
                         break;
@@ -108,18 +114,29 @@ public class Main {
                         String newWordJapanese = sc.next();
                         System.out.println("Enter a English: ");
                         String newWordEnglish = sc.next();
-                        Word neWord = new Word(newWordJapanese,newWordEnglish);
+                        System.out.println("Enter category: ");
+                        String newCategory = sc.next();
+                        Word neWord = new Word(newWordJapanese,newWordEnglish,newCategory);
                         deck.add(neWord);
                         // add new word to words file 
                         PrintWriter outAdd = new PrintWriter(new FileWriter("words.txt",true));
-                        outAdd.println(neWord.japanese + "," + newWordEnglish);
+                        outAdd.println(neWord.japanese + "," + newWordEnglish + "," + newCategory + "\n");
                         outAdd.close();
                         break;
 
                 // delete a word
                 case 4:
-                        
-                        
+                        System.out.println("Please enter the word you want delete in english: ");
+                        String input = sc.nextLine().trim();
+                        Word.removeByEnlish(deck,input);
+                        Word.saveBackToFile(deck);
+                        break;
+                // search a word
+                case 5:
+                        System.out.println("Please enter the word(E/J) you want get(return in both english and japanese)");
+                        String searchInput = sc.nextLine();
+                        Word.searchByEnglish(deck, searchInput);
+                        break;
                 default:
                         System.out.println("Invild choice please enter a number 1-6");
                 break;
