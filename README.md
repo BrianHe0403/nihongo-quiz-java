@@ -12,12 +12,13 @@ I built this project to combine two personal interests:
 
 ## Features
 - Random vocabulary quiz 
-- Japanese-to-English word practice
+- Japanese-to-English word practice 
 - Tracks incorrect answers and add them in a missed file
 - Category-based word organization
 - Simple command-line interaction
 - Add/Remove vocabulary from txt file
 - Search a vocabulary from file
+- Exit whole project
 
 ## Technologies Used
 - Java
@@ -26,6 +27,7 @@ I built this project to combine two personal interests:
 - Random
 - Scanner
 - File input/output
+- Hashset
 
 ## What I Learned
 Through this project, I strengthened my understanding of:
@@ -43,7 +45,6 @@ Another challenge was making the program easy to extend, so I could add more voc
 ## Future Improvements
 - Add a scoring system
 - Add difficulty levels
-- Save missed words automatically
 - Build a GUI version
 - Support both Japanese-to-English and English-to-Japanese quizzes
 

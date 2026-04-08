@@ -48,7 +48,7 @@ public class Main {
             System.out.println("==== Japanese Learning App ====");
             
             int choice = sc.nextInt();
-            sc.nextLine();
+            sc.nextLine(); //  clear the space enter !! after enter the chocie 
             switch (choice) {
                 // show all words
                 case 1: //this loop goes through each word oject in deck during each iteration,w refers to the current object 
@@ -68,8 +68,13 @@ public class Main {
                         System.out.println("- " + s);
                     }
 
-                    System.out.println("Please select a category that you interested");
+                    System.out.println("Please enter a category that you interested");
                     String categorySelect = sc.nextLine().trim();
+
+                    if(categories.isEmpty()){
+                        System.out.println("No words in this category!");
+                        break;
+                    }
                     
                     ArrayList<Word> categoryName = new ArrayList<>();
                     
@@ -85,7 +90,7 @@ public class Main {
                     // reset the miss file 
                     missed.clear(); 
 
-                    int total = 10;
+                    int total = Math.min(10,categoryName.size());
                     int correct = 0;
                     // Quiz loop
                     for (int i = 1; i <= total; i++){
@@ -134,11 +139,11 @@ public class Main {
                 // add new word
                 case 3:
                         System.out.println("Enter a Japanese: ");
-                        String newWordJapanese = sc.next();
+                        String newWordJapanese = sc.next().trim();
                         System.out.println("Enter a English: ");
-                        String newWordEnglish = sc.next();
+                        String newWordEnglish = sc.next().trim();
                         System.out.println("Enter category: ");
-                        String newCategory = sc.next();
+                        String newCategory = sc.next().trim();
                         Word neWord = new Word(newWordJapanese,newWordEnglish,newCategory);
                         deck.add(neWord);
                         // add new word to words file 
@@ -151,14 +156,14 @@ public class Main {
                 case 4:
                         System.out.println("Please enter the word you want delete in english: ");
                         String input = sc.nextLine().trim();
-                        Word.removeByEnlish(deck,input);
+                        Word.removeByEnglish(deck,input);
                         Word.saveBackToFile(deck);
                         break;
                 // search a word
                 case 5:
                         System.out.println("Please enter the word(E/J) you want get(return in both english and japanese)");
                         String searchInput = sc.nextLine();
-                        Word.searchByEnglish(deck, searchInput);
+                        Word.searchByEnglishOrJapanese(deck, searchInput);
                         break;
                 // Exit project
                 case 6:
@@ -167,8 +172,8 @@ public class Main {
                         break;
                 default:
                         System.out.println("Invild choice please enter a number 1-6");
-                break;
-                            }
+                        break;
+                        }
             }
 
             //close the stream and releases system resources

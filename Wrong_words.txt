@@ -1,3 +1,7 @@
-羊/ひつじ,sheep,Animal
-豚/ぶた,pig,Animal
-蛙/かえる,frog,Animal
+おにぎり/おにぎり,rice ball,Food
+焼き鳥/やきとり,yakitori,Food
+弁当/べんとう,bento,Food
+ラーメン/らーめん,ramen,Food
+バター/ばたー,butter,Food
+おにぎり/おにぎり,rice ball,Food
+いちご/いちご,strawberry,Food
